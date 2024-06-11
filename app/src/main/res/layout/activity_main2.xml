@@ -13,8 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Cadastro"
         android:textSize="48sp"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="95dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nome_t2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/cpf_t2"
@@ -23,8 +27,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="CPF:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="264dp" />
+        app:layout_constraintBottom_toTopOf="@+id/telefone_t2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome_t2"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/email_t2"
@@ -33,8 +41,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="E-mail:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="399dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cadastro_bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telefone_t2"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/nome_t2"
@@ -43,8 +55,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="Nome:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="201dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cpf_t2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_cadastro"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/telefone_t2"
@@ -53,23 +69,35 @@
         android:ems="10"
         android:inputType="text"
         android:text="Telefone:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="330dp" />
+        app:layout_constraintBottom_toTopOf="@+id/email_t2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpf_t2"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/cadastro_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar-se"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="486dp" />
+        app:layout_constraintBottom_toTopOf="@+id/voltar_bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_t2"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/voltar_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voltar"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="566dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_bt"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

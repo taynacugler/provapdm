@@ -12,8 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Conta"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="302dp" />
+        app:layout_constraintBottom_toTopOf="@+id/pedidos_bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_menu"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/titulo_menu"
@@ -21,22 +25,34 @@
         android:layout_height="wrap_content"
         android:text="MENU"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintBottom_toTopOf="@+id/conta_bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/pedidos_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pedidos"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="368dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bt_sair"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conta_bt"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/bt_sair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sair"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="435dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pedidos_bt"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

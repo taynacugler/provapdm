@@ -27,6 +27,29 @@ class DAO(contexto: Context) {
         val confirmaInsercao = db_insercao.insert("cliente", null, cv_valores)
         Log.i("Teste", "-> Inserção Cliente: $confirmaInsercao")
     }
+    fun procurarClientePorCpf(cpf: String): Cliente? {
+        val db_consulta = meuBanco.readableDatabase
+        val cursor = db_consulta.query(
+            "cliente", // Nome da tabela
+            arrayOf("cpf", "nome", "telefone", "email"), // Colunas a serem retornadas
+            "cpf = ?", // Coluna para a cláusula WHERE
+            arrayOf(cpf), // Valores para a cláusula WHERE
+            null, // Group By
+            null, // Having
+            null // Order By
+        )
+
+        var cliente: Cliente? = null
+
+        if (cursor.moveToFirst()) {
+            val nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"))
+            val telefone = cursor.getString(cursor.getColumnIndexOrThrow("telefone"))
+            val email = cursor.getString(cursor.getColumnIndexOrThrow("email"))
+            cliente = Cliente(cpf, nome, telefone, email)
+        }
+        cursor.close()
+        return cliente
+    }
 
     fun mostrarUmCliente(cpf: String) {
         val db_leitura = meuBanco.readableDatabase

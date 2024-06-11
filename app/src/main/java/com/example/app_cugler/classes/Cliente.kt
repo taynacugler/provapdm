@@ -1,16 +1,38 @@
-package com.example.app_cugler.classes
+import android.os.Parcel
+import android.os.Parcelable
 
-class Cliente (cpf: String, nome: String, telefone: String, email: String) {
-    var cpf: String
-    var nome: String
-    var telefone: String
-    var email: String
+data class Cliente(
+    val cpf: String,
+    val nome: String,
+    val telefone: String,
+    val email: String
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!
+    ) {
+    }
 
-    init {
-        this.cpf = cpf
-        this.nome = nome
-        this.telefone = telefone
-        this.email = email
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(cpf)
+        parcel.writeString(nome)
+        parcel.writeString(telefone)
+        parcel.writeString(email)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Cliente> {
+        override fun createFromParcel(parcel: Parcel): Cliente {
+            return Cliente(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Cliente?> {
+            return arrayOfNulls(size)
+        }
     }
 }
-

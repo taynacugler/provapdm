@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_cugler"
         tools:targetApi="31">
+        <activity android:name=".SegundaTela"></activity>
+        <activity android:name=".TerceiraTela"></activity>
+        <activity android:name=".QuartaTela"></activity>
+        <activity android:name=".QuintaTela"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

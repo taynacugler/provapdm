@@ -13,16 +13,24 @@
         android:layout_height="58dp"
         android:text="MII BÃO"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="37dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cpf_t1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tayná Cardoso Cugler"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="696dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_cadastro"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/cpf_t1"
@@ -31,30 +39,46 @@
         android:ems="10"
         android:text="CPF"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bt_entrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_t1"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ou"
-        tools:layout_editor_absoluteX="197dp"
-        tools:layout_editor_absoluteY="388dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bt_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_entrar"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/bt_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Entrar"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="321dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpf_t1"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/bt_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastro"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="436dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
