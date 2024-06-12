@@ -1,10 +1,10 @@
 package banco
 
+import Cliente
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.util.Log
-import com.example.app_cugler.classes.Cliente
 import com.example.app_cugler.classes.Pamonha
 
 class DAO(contexto: Context) {
@@ -150,4 +150,6 @@ class DAO(contexto: Context) {
         val confirmaAtualizacao = db_atualizacao.update("pamonha", cv_valores, condicao, arrayOf(pamonha.idPamonha.toString()))
         Log.i("Teste", "-> Atualização Pamonha: $confirmaAtualizacao")
     }
+
+
 }

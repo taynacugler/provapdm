@@ -73,6 +73,18 @@ class SegundaTela : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main3)
             val cliente: Cliente? = intent.getParcelableExtra("cliente")
+            val dao = DAO(this)
+            if (cliente != null) {
+                dao.mostrarUmCliente(cliente.cpf)
+            }
+
+
+
+//            if (cliente != null) {
+//                Toast.makeText(this, "Cliente: ${cliente.nome}, CPF: ${cliente.cpf}, Telefone: ${cliente.telefone}, Email: ${cliente.email}", Toast.LENGTH_LONG).show()
+//            } else {
+//                Toast.makeText(this, "Cliente não encontrado", Toast.LENGTH_LONG).show()
+//            }
             val botaoSair: Button = findViewById(R.id.bt_sair)
             botaoSair.setOnClickListener {
                 finish()
