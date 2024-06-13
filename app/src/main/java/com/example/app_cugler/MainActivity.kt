@@ -3,7 +3,6 @@ package com.example.app_cugler
 import Cliente
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import banco.Banco
 import banco.DAO
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -65,6 +65,29 @@ class SegundaTela : AppCompatActivity() {
             button.setOnClickListener {
                 finish()
             }
+            val botaoCad: Button = findViewById(R.id.cadastro_bt)
+            botaoCad.setOnClickListener{
+                val nome: EditText = findViewById(R.id.nome_t2)
+                val cpf: EditText = findViewById(R.id.cpf_t2)
+                val telefone: EditText = findViewById(R.id.telefone_t2)
+                val email: EditText = findViewById(R.id.email_t2)
+
+                val nomeText = nome.text.toString()
+                val cpfText = cpf.text.toString()
+                val telefoneText = telefone.text.toString()
+                val emailText = email.text.toString()
+
+                val cliente = Cliente (
+                    nome = nomeText,
+                    cpf = cpfText,
+                    telefone = telefoneText,
+                    email = emailText
+                )
+                val dao = DAO (this)
+                dao.inserirCliente(cliente)
+                finish()
+            }
+
         }
     }
 
@@ -96,8 +119,9 @@ class SegundaTela : AppCompatActivity() {
             }
             val botaoConta: Button = findViewById(R.id.conta_bt)
             botaoConta.setOnClickListener {
-                val intentConta = Intent(this, QuartaTela::class.java)
-                startActivity(intentConta)
+                val intent = Intent(this, QuartaTela::class.java)
+                intent.putExtra("cliente", cliente) // Passando o cliente como extra
+                startActivity(intent)
             }
 
 
@@ -108,9 +132,35 @@ class QuartaTela : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
+        val cliente: Cliente? = intent.getParcelableExtra("cliente")
+
         val botaoSair: Button = findViewById(R.id.voltar_btt_t4)
         botaoSair.setOnClickListener {
             finish()
+        }
+        val botaoAtt: Button = findViewById(R.id.att_bt)
+        val dao = DAO (this)
+        botaoAtt.setOnClickListener {
+            val nome: EditText = findViewById(R.id.getNome)
+            val telefone: EditText = findViewById(R.id.getTelefone)
+            val email: EditText = findViewById(R.id.getEmail)
+
+            val nomeText = nome.text.toString()
+            val telefoneText = telefone.text.toString()
+            val emailText = email.text.toString()
+            //pegar o cpf do cliente
+            if (cliente != null) {
+                val clienteAtt = Cliente(cliente.cpf, nomeText, telefoneText, emailText)
+                dao.atualizarCliente(clienteAtt)
+            }
+
+        }
+        val botaoDelete: Button = findViewById((R.id.delete_bt))
+        botaoDelete.setOnClickListener {
+            //pegar cpf do cliente
+            if (cliente != null) {
+                dao.excluirCliente(cliente.cpf)
+            }
         }
     }
 }
@@ -120,7 +170,7 @@ class QuintaTela : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main5)
 
-        val botaoSair: Button = findViewById(R.id.voltar_tb_t5)
+        val botaoSair: Button = findViewById(R.id.voltar_bt_t5)
         botaoSair.setOnClickListener {
             finish()
         }

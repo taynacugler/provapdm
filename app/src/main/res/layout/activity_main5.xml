@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="FAZER PEDIDO"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText4"
+        app:layout_constraintBottom_toTopOf="@+id/recheio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,13 +33,13 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/recheio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText5"
+        android:text="Tipo de recheio:"
+        app:layout_constraintBottom_toTopOf="@+id/pesoQueijo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,42 +47,42 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/pesoQueijo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/voltar_tb_t5"
+        android:text="Peso do queijo:"
+        app:layout_constraintBottom_toTopOf="@+id/voltar_bt_t5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4"
+        app:layout_constraintTop_toBottomOf="@+id/recheio"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/voltar_tb_t5"
+        android:id="@+id/voltar_bt_t5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Voltar"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/voltar_tb_t5"
+        app:layout_constraintEnd_toStartOf="@+id/voltar_bt_t5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5"
+        app:layout_constraintTop_toBottomOf="@+id/pesoQueijo"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/voltar_tb_t5"
+        android:id="@+id/voltar_bt_t5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Pedir"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.859"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5"
+        app:layout_constraintTop_toBottomOf="@+id/pesoQueijo"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voltar_tb_t5"
+        app:layout_constraintTop_toBottomOf="@+id/voltar_bt_t5"
         app:layout_constraintVertical_bias="0.5" />
 
     <androidx.recyclerview.widget.RecyclerView
