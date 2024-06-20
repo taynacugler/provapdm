@@ -3,7 +3,6 @@ package banco
 import Cliente
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.util.Log
 import com.example.app_cugler.classes.Pamonha
 
@@ -31,12 +30,12 @@ class DAO(contexto: Context) {
         val db_consulta = meuBanco.readableDatabase
         val cursor = db_consulta.query(
             "cliente", // Nome da tabela
-            arrayOf("cpf", "nome", "telefone", "email"), // Colunas a serem retornadas
-            "cpf = ?", // Coluna para a cláusula WHERE
-            arrayOf(cpf), // Valores para a cláusula WHERE
-            null, // Group By
-            null, // Having
-            null // Order By
+            arrayOf("cpf", "nome", "telefone", "email"),
+            "cpf = ?", //where
+            arrayOf(cpf),
+            null,
+            null,
+            null
         )
 
         var cliente: Cliente? = null

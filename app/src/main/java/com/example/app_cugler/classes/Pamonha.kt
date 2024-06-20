@@ -1,15 +1,19 @@
 package com.example.app_cugler.classes
 
-class Pamonha(idPamonha: Int, tipoDeRecheio: String, pesoDeQueijo: Float, fkCpf: String) {
-    var idPamonha: Int
-    var tipoDeRecheio: String
-    var pesoDeQueijo: Float
+
+class Pamonha(
+    var tipoDeRecheio: String,
+    var pesoDeQueijo: Float?,
     var fkCpf: String
+) {
+    var idPamonha: Int
+
+    companion object {
+        private var lastId: Int = 0
+    }
 
     init {
-        this.idPamonha = idPamonha
-        this.tipoDeRecheio = tipoDeRecheio
-        this.pesoDeQueijo = pesoDeQueijo
-        this.fkCpf = fkCpf
+        lastId++
+        idPamonha = lastId
     }
 }

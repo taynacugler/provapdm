@@ -8,23 +8,11 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tayná Cardoso Cugler"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <TextView
-        android:id="@+id/pedido_t5"
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FAZER PEDIDO"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/recheio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,21 +27,21 @@
         android:ems="10"
         android:inputType="text"
         android:text="Tipo de recheio:"
-        app:layout_constraintBottom_toTopOf="@+id/pesoQueijo"
+        app:layout_constraintBottom_toTopOf="@+id/queijo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pedido_t5"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/pesoQueijo"
+        android:id="@+id/queijo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
         android:text="Peso do queijo:"
-        app:layout_constraintBottom_toTopOf="@+id/voltar_bt_t5"
+        app:layout_constraintBottom_toTopOf="@+id/pedir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,51 +49,45 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/voltar_bt_t5"
+        android:id="@+id/sair_t5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Voltar"
+        android:text="Sair"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/voltar_bt_t5"
+        app:layout_constraintEnd_toStartOf="@+id/pedir"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pesoQueijo"
+        app:layout_constraintTop_toBottomOf="@+id/queijo"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/voltar_bt_t5"
+        android:id="@+id/pedir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pedir"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pesoQueijo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sair_t5"
+        app:layout_constraintTop_toBottomOf="@+id/queijo"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        android:text="Todos os pedidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voltar_bt_t5"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/sair_t5" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="285dp"
-        android:layout_height="231dp"
-        app:layout_constraintBottom_toTopOf="@+id/nome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.5" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-130dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
