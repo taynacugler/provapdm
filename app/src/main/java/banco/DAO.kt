@@ -59,21 +59,6 @@ class DAO(contexto: Context) {
         cursor.close()
     }
 
-    fun mostrarTodosClientes() {
-        val db_leitura = meuBanco.readableDatabase
-        val cursor = db_leitura.rawQuery("select * from cliente", null)
-        with(cursor) {
-            while (moveToNext()) {
-                val cpf = getString(getColumnIndexOrThrow("cpf"))
-                val nome = getString(getColumnIndexOrThrow("nome"))
-                val telefone = getString(getColumnIndexOrThrow("telefone"))
-                val email = getString(getColumnIndexOrThrow("email"))
-                Log.i("Teste", "-> CPF: $cpf - Nome: $nome - Telefone: $telefone - Email: $email")
-            }
-        }
-        cursor.close()
-    }
-
     fun excluirCliente(cpf: String) {
         val db_exclusao = meuBanco.readableDatabase
         val condicao = "cpf = ?"
@@ -115,21 +100,6 @@ class DAO(contexto: Context) {
         cursor.close()
     }
 
-    fun mostrarTodasPamomhas() {
-        val db_leitura = meuBanco.readableDatabase
-        val cursor = db_leitura.rawQuery("select * from pamonha", null)
-        with(cursor) {
-            while (moveToNext()) {
-                val idPamonha = getInt(getColumnIndexOrThrow("idPamonha"))
-                val tipoDeRecheio = getString(getColumnIndexOrThrow("tipoDeRecheio"))
-                val pesoDeQueijo = getFloat(getColumnIndexOrThrow("pesoDeQueijo"))
-                val fkCpf = getString(getColumnIndexOrThrow("fkCpf"))
-                Log.i("Teste", "-> ID: $idPamonha - Tipo de Recheio: $tipoDeRecheio - Peso de Queijo: $pesoDeQueijo - CPF: $fkCpf")
-            }
-        }
-        cursor.close()
-    }
-
     fun excluirPamonha(idPamonha: Int) {
         val db_exclusao = meuBanco.readableDatabase
         val condicao = "idPamonha = ?"
@@ -137,7 +107,7 @@ class DAO(contexto: Context) {
         Log.i("Teste", "-> Exclusão Pamonha: $confirmaExclusao")
     }
 
-    fun atualizarPamonha(pamonha: Pamonha) {
+    fun atualizarPamonha(pamonha: Pamonha, id: Int) {
         val db_atualizacao = meuBanco.writableDatabase
         val cv_valores = ContentValues().apply {
             put("idPamonha", pamonha.idPamonha)
@@ -146,8 +116,36 @@ class DAO(contexto: Context) {
             put("fkCpf", pamonha.fkCpf)
         }
         val condicao = "idPamonha = ?"
-        val confirmaAtualizacao = db_atualizacao.update("pamonha", cv_valores, condicao, arrayOf(pamonha.idPamonha.toString()))
+        val confirmaAtualizacao = db_atualizacao.update("pamonha", cv_valores, condicao, arrayOf(id.toString()))
         Log.i("Teste", "-> Atualização Pamonha: $confirmaAtualizacao")
+    }
+    fun procurarPamonhaPorID(idPamonha: Int): Pamonha? {
+        Log.d("DAO", "Iniciando consulta por ID: $idPamonha")
+        val db_consulta = meuBanco.readableDatabase
+        val cursor = db_consulta.query(
+            "pamonha", // Nome da tabela
+            arrayOf("idPamonha", "tipoDeRecheio", "pesoDeQueijo", "fkCpf"),
+            "idPamonha = ?", //where
+            arrayOf(idPamonha.toString()),
+            null,
+            null,
+            null
+        )
+
+        var pamonha: Pamonha? = null
+
+        if (cursor.moveToFirst()) {
+            val tipoDeRecheio = cursor.getString(cursor.getColumnIndexOrThrow("tipoDeRecheio"))
+            val pesoDeQueijo = cursor.getFloat(cursor.getColumnIndexOrThrow("pesoDeQueijo"))
+            val fkCpf = cursor.getString(cursor.getColumnIndexOrThrow("fkCpf"))
+            pamonha = Pamonha(tipoDeRecheio, pesoDeQueijo, fkCpf)
+            Log.d("DAO", "Pamonha encontrada: $pamonha")
+        } else {
+            Log.d("DAO", "Nenhuma pamonha encontrada com o ID: $idPamonha")
+        }
+        cursor.close()
+        Log.d("DAO", "Consulta finalizada")
+        return pamonha
     }
 
 

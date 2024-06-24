@@ -16,6 +16,7 @@
         <activity android:name=".TerceiraTela"></activity>
         <activity android:name=".QuartaTela"></activity>
         <activity android:name=".QuintaTela"></activity>
+        <activity android:name=".SextaTela"></activity>
 
         <activity
             android:name=".MainActivity"
